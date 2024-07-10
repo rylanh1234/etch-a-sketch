@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    display: flex;
+    height: 80vh;
+    width: 80vh;
+    flex-wrap: wrap;
+}
+
+.griddiv {
+    display: flex;
+    height: calc(80vh / 16);
+    width: calc(80vh / 16);
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
