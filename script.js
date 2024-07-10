@@ -6,3 +6,10 @@ const griddiv = document.createElement("div");
 griddiv.classList.add("griddiv");
 container.appendChild(griddiv);
 }
+
+const gridarray = document.querySelectorAll(".griddiv")
+gridarray.forEach((griddiv) => {
+    griddiv.addEventListener("mouseenter", function(e) {
+        e.target.style = "background:blue"
+    })
+})
