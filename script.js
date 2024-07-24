@@ -19,9 +19,9 @@ function createGrid(numberDiv) {
 createGrid(numberDiv);
 
 const sizebutton = document.querySelector("button")
-const children = container.querySelectorAll("*");
 sizebutton.addEventListener("click", ()=> {
     numberDiv = prompt("Enter the number of squares per side for the new grid.")
+    const children = container.querySelectorAll("*");
     children.forEach((griddiv) => {
         griddiv.remove()
     })
