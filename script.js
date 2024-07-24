@@ -22,10 +22,15 @@ const sizebutton = document.querySelector("button")
 sizebutton.addEventListener("click", ()=> {
     numberDiv = prompt("Enter the number of squares per side for the new grid.")
     const children = container.querySelectorAll("*");
+    if (numberDiv > 100) {
+        alert("Please enter a number less than 101")
+    }
+    else {
     children.forEach((griddiv) => {
         griddiv.remove()
     })
     createGrid(numberDiv)
+}
 })
 
 
