@@ -9,7 +9,7 @@ let r = 0;
 let g = 0;
 let b = 0;
 const blackrgb = 0;
-let darkness = 1;
+let darkness = 0;
 function createGrid(numberDiv) {
     for (let i = 0; i < numberDiv**2; i++) {
         const griddiv = document.createElement("div");
@@ -22,19 +22,28 @@ function createGrid(numberDiv) {
     gridarray.forEach((griddiv) => {
         griddiv.addEventListener("mouseenter", function(e) {
             if (e.target.style.background === "") {
+                const overlay  = document.createElement('div')
+                overlay.style.position = "absolute";
+                overlay.style.top = "0";
+                overlay.style.left = "0";
+                overlay.style.width = "100%";
+                overlay.style.height = "100%";
+                overlay.style.position = "relative";
+
+
                 r = randInt();
                 g = randInt();
                 b = randInt();
-                if (darkness > 0.11){
-                    darkness -= 0.1;
+                if (darkness < 0.9){
+                    darkness += 0.1;
                 }
                 else {
-                    darkness = 0;
+                    darkness = 1;
                 }
-                r *= darkness;
-                g *= darkness;
-                b *= darkness;
+
                 e.target.style.background = `rgb(${r}, ${g}, ${b})`
+                overlay.style.background = `rgb(${blackrgb}, ${blackrgb}, ${blackrgb}, ${darkness})`
+                griddiv.appendChild(overlay)
             }
         })
     })
