@@ -8,6 +8,8 @@ let numberDiv = 16;
 let r = 0;
 let g = 0;
 let b = 0;
+const blackrgb = 0;
+let darkness = 1;
 function createGrid(numberDiv) {
     for (let i = 0; i < numberDiv**2; i++) {
         const griddiv = document.createElement("div");
@@ -23,7 +25,16 @@ function createGrid(numberDiv) {
                 r = randInt();
                 g = randInt();
                 b = randInt();
-                e.target.style.background = `rgb(${r}, ${g}, ${b})`;
+                if (darkness > 0.11){
+                    darkness -= 0.1;
+                }
+                else {
+                    darkness = 0;
+                }
+                r *= darkness;
+                g *= darkness;
+                b *= darkness;
+                e.target.style.background = `rgb(${r}, ${g}, ${b})`
             }
         })
     })
